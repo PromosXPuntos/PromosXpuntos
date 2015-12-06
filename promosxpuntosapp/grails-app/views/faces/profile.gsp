@@ -24,10 +24,10 @@
 <nav id="nav">
     <ul class="links">
         <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
-        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
-        <li><a href="#">Ver Historial</a></li>
-        <li><a href="/promosxpuntosapp/customerList">Redimir Puntos</a></li>
+        <li><a href="${createLink(controller:'profile', action:'editStandardUser')}">Editar Perfil</a></li>
+        <li><a href="${createLink(controller:'profile', action:'QRScanner')}">Registrar Visita</a></li>
+        <li><a href="${createLink(controller:'shopRecord', action:'showHistory', params: [userId: session.user.id])}">Ver Historial</a></li>
+        <li><a href="${createLink(controller:'customerList')}">Redimir Puntos</a></li>
     </ul>
 </nav>
 
@@ -41,8 +41,8 @@
             <p>${session.user.name} ${session.user.lastname}</p>
             <g:uploadForm controller="standardUser" action="logOut" method="post">
                 <ul class="actions">
-                    <li><a href="/promosxpuntosapp/profile/QRScanner" class="button special">Registrar Visita</a></li>
-                    <li><a href="/promosxpuntosapp/customerList" class="button special">Redimir Puntos</a></li>
+                    <li><a href="${createLink(controller:'profile', action:'QRScanner')}" class="button special">Registrar Visita</a></li>
+                    <li><a href="${createLink(controller:'customerList')}" class="button special">Redimir Puntos</a></li>
                     <li><a href="${createLink(controller:'shopRecord', action:'showHistory', params: [userId: session.user.id])}" class="button special">Ver historial</a></li>
                 </ul>
             </g:uploadForm>

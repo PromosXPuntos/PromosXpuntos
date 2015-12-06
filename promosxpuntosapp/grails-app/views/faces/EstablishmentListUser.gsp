@@ -17,9 +17,9 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profile')}">Promos x Puntos</a></h1>
     <a>${session.user.nickname}</a>
-    <a href="/promosxpuntosapp/customerList" class="button special">Volver</a>
+    <a href="${createLink(controller:'customerList')}" class="button special">Volver</a>
     <a href="#nav">Menu</a>
 </header>
 
@@ -27,8 +27,8 @@
 <nav id="nav">
     <ul class="links">
         <li><a href="${createLink(controller:'customer', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar visita</a></li>
-        <li><a href="#">Ver historial</a></li>
+        <li><a href="${createLink(controller:'customer', action:'QRScanner')}">Registrar visita</a></li>
+        <li><a href="${createLink(controller:'shopRecord', action:'showHistory', params: [userId: session.user.id])}">Ver historial</a></li>
     </ul>
 </nav>
 

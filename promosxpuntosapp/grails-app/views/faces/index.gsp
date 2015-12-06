@@ -26,7 +26,7 @@
         <li><a href="#home">Inicio</a></li>
         <li><a href="#login">Iniciar sesion</a></li>
         <li><a href="#subscribe">Registrar usuario</a></li>
-        <li><a href="customersIndex">Para Empresas</a></li>
+        <li><a href="${createLink(controller:'customersIndex')}">Para Empresas</a></li>
     </ul>
 </nav>
 
@@ -123,7 +123,7 @@
             <p>Con Promos X Puntos tendrás a la mano una herramienta de fidelización y marketing para tu compañia.</p>
         </header>
         <ul class="actions">
-            <li><a href="customersIndex" class="button big alt">PromosXPuntos para Empresas</a></li>
+            <li><a href="${createLink(controller:'customersIndex')}" class="button big alt">PromosXPuntos para Empresas</a></li>
         </ul>
     </div>
 </section>
