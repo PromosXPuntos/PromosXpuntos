@@ -46,7 +46,6 @@ class ShopRecordController {
         shop.placeValidate = Establishment.findByNicknameEstablishment((String) params.nickname)
         shop.save flush: true
         redirect controller: "profileEstablishment"
-        Visit.countById()
     }
 
     def showHistory(){

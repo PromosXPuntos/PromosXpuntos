@@ -42,10 +42,10 @@
                 <div class="12u$">
                     <div class="table-wrapper">
                         <table style="vertical-align: middle;">
-                            <tr><th> RECOMPENSA </th> <th>FECHA</th> <th>CLIENTE</th></tr>
+                            <tr><th> RECOMPENSA </th> <th>FECHA</th> <th>CLIENTE</th><th>AUTORIZACIÓN</th></tr>
                             <g:each var="c" in="${promosxpuntosapp.ShopRecord.findAllByStandardUser(session.user)}">
                                 <g:if test="${c.validate}">
-                                    <tr><th> ${c.reward.rewardName}</th> <th>${c.date.format("d MMMM yyyy")}</th><th>${c.customer.name}</th></tr>
+                                    <tr><th> ${c.reward.rewardName}</th> <th>${c.date.format("d MMMM yyyy")}</th><th>${c.customer.name}</th><th>${c.consecutive}</th></tr>
                                 </g:if>
                             </g:each>
                         </table>
