@@ -25,7 +25,7 @@
     <ul class="links">
         <li><a href="${createLink(controller:'establishment', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
         <li><a href="${createLink(controller:'profileCustomer', action:'codeQRgenerate')}">Generar QR</a></li>
-        <li><a href="${createLink(controller:'profileCustomer', action:'validateShopRecord')}">Validar Compra</a></li>
+        <li><a href="${createLink(controller:'profileEstablishment', action:'validateShopRecord')}">Validar Compra</a></li>
     </ul>
 </nav>
 
@@ -39,7 +39,7 @@
             <g:uploadForm controller="establishment" action="logOut" method="post">
                 <ul class="actions">
                     <li><a class="button special" href="${createLink(controller:'profileCustomer', action:'codeQRgenerate')}">Generar QR</a></li>
-                    <li><a class="button special" href="${createLink(controller:'profileCustomer', action:'validateShopRecord')}">Validar Compra</a></li>
+                    <li><a class="button special" href="${createLink(controller:'profileEstablishment', action:'validateShopRecord')}">Validar Compra</a></li>
                 </ul>
             </g:uploadForm>
         </header>

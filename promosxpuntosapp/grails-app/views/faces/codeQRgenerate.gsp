@@ -79,8 +79,8 @@
 <asset:javascript src="main.js"/>
 <!--
 REFRESH PAGE AFTER 15 seconds
-<meta http-equiv=refresh content=15>
 -->
+<meta http-equiv=refresh content=15>
 
 </body>
 </html>
