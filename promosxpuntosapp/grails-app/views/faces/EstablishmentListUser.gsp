@@ -49,7 +49,7 @@
         </header>
 
         <div class="container 75%">
-            <h2>Recompenzas vigentes</h2>
+            <h2>Recompensas vigentes</h2>
             <div class="row uniform 50%">
                 <g:uploadForm controller="shopRecord" action="redimir" method="post" accept-charset="UTF-8" role="form" >
                     <g:each var="c" in="${promosxpuntosapp.Reward.findAllByCustomer(session.customer)}">

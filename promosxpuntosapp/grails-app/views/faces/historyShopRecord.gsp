@@ -37,7 +37,7 @@
         </header>
 
         <div class="container 75%">
-            <h2>Productos por redimir</h2>
+            <h2>Productos por reclamar</h2>
             <div class="row uniform 50%">
                 <div class="12u$">
                     <div class="table-wrapper">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="container 75%">
-            <h2>Productos ya redimidos</h2>
+            <h2>Productos ya reclamados</h2>
             <div class="row uniform 50%">
                 <div class="12u$">
                     <div class="table-wrapper">

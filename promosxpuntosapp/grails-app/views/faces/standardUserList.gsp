@@ -50,7 +50,7 @@
                             <table style="vertical-align: middle;">
                                 <g:each var="c" in="${Visit.list().standardUser.toSet()}">
                                     <g:if test="${c.points.containsKey(session.customer.id)}">
-                                        <tr><th>${c.name}</th><th> ${c.points[session.customer.id]}</th></tr>
+                                        <tr><th>${c.name} ${c.lastname}: ${c.nickname}</th><th> ${Visit.countByStandardUser(c)} visitas</th></tr>
                                     </g:if>
                                 </g:each>
                             </table>
