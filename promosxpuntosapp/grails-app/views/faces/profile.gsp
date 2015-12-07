@@ -61,6 +61,12 @@
         </div>
     </div>
 </section>
+<div class="container">
+    <header class="major special">
+        <a name="fb_share" type="box_count" share_url="https://www.facebook.com/Promosxpuntos-865416263565823"></a>
+        <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+    </header>
+</div>
 
 <!-- Footer -->
 <footer id="footer">
