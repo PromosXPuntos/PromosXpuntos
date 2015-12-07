@@ -104,7 +104,7 @@ class VisitController {
 
         def standardUser = StandardUser?.findById(params."standardUser.id")
         def customer = Customer?.findById(visitInstance.establishment.customerId)
-        def previousVisit = Visit.findAllByEstablishment(visitInstance.establishment)
+        def previousVisit = Visit.findAllByEstablishmentAndStandardUser(visitInstance.establishment,standardUser)
         def repeatedCode = Visit.findByQrCode(qrCode)
         def control = false
         if (previousVisit != null) {
