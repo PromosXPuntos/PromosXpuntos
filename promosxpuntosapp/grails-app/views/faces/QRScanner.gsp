@@ -22,6 +22,9 @@
             <h2>Registrar Visita</h2>
             <p>Acerca tu dispositivo al codigo QR del establecimiento</p>
             <div>
+                <g:if test="${flash.message}">
+                    <div class="message" role="status">${flash.message}</div>
+                </g:if>
                 <video id="sourcevid" width="400" height="400">
                     <p>This application requires an HTML5 <code>&lt;video&gt;</code> capable browser…</p>
                 </video>

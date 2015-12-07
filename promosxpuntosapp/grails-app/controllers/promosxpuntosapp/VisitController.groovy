@@ -93,7 +93,7 @@ class VisitController {
 
     }
 
-    def guardar(){
+    def guardar() {
         def visitInstance = new Visit()
         def qrCode = params.qrCode
         def nicknameEstablishment = qrCode.split("-")
@@ -104,25 +104,41 @@ class VisitController {
 
         def standardUser = StandardUser?.findById(params."standardUser.id")
         def customer = Customer?.findById(visitInstance.establishment.customerId)
-
-        if (standardUser.points==null){
-            standardUser.points = new TreeMap<Integer, Integer>()
+        def previousVisit = Visit.findAllByEstablishment(visitInstance.establishment)
+        def repeatedCode = Visit.findByQrCode(qrCode)
+        def control = false
+        if (previousVisit != null) {
+            previousVisit.each {
+                if (it.dateVisit.year == visitInstance.dateVisit.year && it.dateVisit.month == visitInstance.dateVisit.month && it.dateVisit.day == visitInstance.dateVisit.day) {
+                    control = true
+                }
+            }
         }
-        if (standardUser.points.containsKey(customer.id)) {
-            def actual = standardUser.points.get(customer.id)
-            standardUser.points[customer.id] = actual + 1
+        if (control) {
+            flash.message = "Ya visitaste este establecimiento el día de hoy. Solo puedes realizar una visita diaria"
+            redirect controller: 'profile', action: 'QRScanner'
+        } else {
+            if (repeatedCode != null){
+                flash.message = "Este código QR ya no es valido. Inténtalo de nuevo"
+                redirect controller: 'profile', action: 'QRScanner'
+            }else {
+                if (standardUser.points == null) {
+                    standardUser.points = new TreeMap<Integer, Integer>()
+                }
+                if (standardUser.points.containsKey(customer.id)) {
+                    def actual = standardUser.points.get(customer.id)
+                    standardUser.points[customer.id] = actual + 1
+                } else {
+                    standardUser.points[customer.id] = 1
+                }
+                visitInstance.standardUser = standardUser
+                session.user = standardUser
+                session.visit = visitInstance
+                visitInstance.save flush: true
+                standardUser.save flush: true
+                redirect controller: "visitDone"
+            }
         }
-        else{
-            standardUser.points[customer.id] = 1
-        }
-        visitInstance.standardUser=standardUser
-
-        session.user = standardUser
-        session.visit = visitInstance
-        visitInstance.save flush: true
-        standardUser.save flush: true
-        redirect controller: "visitDone"
-        print Visit.list().establishment
     }
 
     def edit(Visit visitInstance) {
