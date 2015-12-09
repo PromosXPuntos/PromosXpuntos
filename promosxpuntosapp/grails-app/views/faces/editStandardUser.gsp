@@ -15,20 +15,19 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profile')}">Promos x Puntos</a></h1>
     <a>${session.user.nickname}</a>
-    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
+    <a href="${createLink(controller:'profile')}" class="button special">Volver</a>
 </header>
 
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
         <li><a href="${createLink(controller:'StandardUser', action:'logOut')}" class="button special">Cerrar Sesion</a></li>
-        <li><a href="/promosxpuntosapp/profile/editStandardUser">Editar Perfil</a></li>
-        <li><a href="/promosxpuntosapp/profile/QRScanner">Registrar Visita</a></li>
-        <li><a href="#">Ver Historial</a></li>
-        <li><a href="/promosxpuntosapp/customerList">Catalogo de Clientes</a></li>
-        <li><a href="#">Redimir Puntos</a></li>
+        <li><a href="${createLink(controller:'profile', action:'editStandardUser')}">Editar Perfil</a></li>
+        <li><a href="${createLink(controller:'profile', action:'QRScanner')}">Registrar Visita</a></li>
+        <li><a href="${createLink(controller:'shopRecord', action:'showHistory', params: [userId: session.user.id])}">Ver Historial</a></li>
+        <li><a href="${createLink(controller:'customerList')}">Catalogo de Clientes</a></li>
     </ul>
 </nav>
 

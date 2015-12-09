@@ -17,9 +17,9 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profileCustomer')}">Promos x Puntos</a></h1>
     <a>${session.customer.nickname}</a>
-    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
+    <a href="${createLink(controller:'profileCustomer')}" class="button special">Volver</a>
 </header>
 
 
@@ -45,7 +45,7 @@
         </header>
     </div>
     <div>
-        <a href="promosxpuntosapp/profileCustomer" class="special"></a>
+        <a href="${createLink(controller:'profileCustomer')}" class="special"></a>
     </div>
 </section>
 

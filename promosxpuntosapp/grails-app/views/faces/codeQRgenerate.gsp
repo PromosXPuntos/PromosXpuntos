@@ -21,16 +21,16 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="index.html">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profileEstablishment')}">Promos x Puntos</a></h1>
     <a>${session.establishment.name}</a>
-    <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
+    <a href="${createLink(controller:'profileEstablishment')}" class="button special">Volver</a>
 </header>
 
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="/faces/profileEstablishment">Volver al establecimiento</a></li>
-        <li><a href="/profileCustomer/codeQRgenerate">recargar la pagina</a></li>
+        <li><a href="${createLink(controller:'profileEstablishment')}">Volver al establecimiento</a></li>
+        <li><a href="${createLink(controller:'profileCustomer', action:'codeQRgenerate')}">recargar la pagina</a></li>
     </ul>
 </nav>
 
@@ -79,8 +79,8 @@
 <asset:javascript src="main.js"/>
 <!--
 REFRESH PAGE AFTER 15 seconds
-<meta http-equiv=refresh content=15>
 -->
+<meta http-equiv=refresh content=15>
 
 </body>
 </html>

@@ -11,9 +11,9 @@
 <body>
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profileEstablishment')}">Promos x Puntos</a></h1>
     <a>${session.establishment.nicknameEstablishment}</a>
-    <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
+    <a href="${createLink(controller:'profileEstablishment')}" class="button special">Volver</a>
 </header>
 
 <section id="subscribe" class="wrapper style4 special">

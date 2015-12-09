@@ -24,9 +24,9 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profileCustomer')}">Promos x Puntos</a></h1>
     <a>${session.customer.nickname}</a>
-    <a href="/promosxpuntosapp/profileCustomer" class="button special">Volver</a>
+    <a href="${createLink(controller:'profileCustomer')}" class="button special">Volver</a>
 </header>
 
 <!-- Main -->
@@ -50,7 +50,7 @@
                             <table style="vertical-align: middle;">
                                 <g:each var="c" in="${Visit.list().standardUser.toSet()}">
                                     <g:if test="${c.points.containsKey(session.customer.id)}">
-                                        <tr><th>${c.name}</th><th> ${c.points[session.customer.id]}</th></tr>
+                                        <tr><th>${c.name} ${c.lastname}: ${c.nickname}</th><th> ${Visit.countByStandardUser(c)} visitas</th></tr>
                                     </g:if>
                                 </g:each>
                             </table>

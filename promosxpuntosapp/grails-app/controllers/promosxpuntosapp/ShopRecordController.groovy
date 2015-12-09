@@ -24,30 +24,24 @@ class ShopRecordController {
 
     def search(){
         def shop = ShopRecord.findByConsecutive((String) params.consecutive)
-        print params.consecutive
-        def validator = shop.validate
-        print validator
-
         if(shop == null){
             flash.message = "Usuario no encontrado o recompensa no valida"
             redirect controller: "profileEstablishment", action: "validateShopRecord"
         }
         else {
+            def validator = shop.validate
             if (validator) {
                 session.shopRecord = shop
                 redirect controller: "validateSuccess"
-                print(shop)
             } else {
-                flash.message = "Usuario no encontrado o recompensa no valida"
+                flash.message = "La recompensa ya fue reclamada"
                 redirect controller: "profileEstablishment", action: "validateShopRecord"
-
             }
         }
     }
 
     def validateShop(){
         def shop = ShopRecord.findByConsecutive((String) params.consecutive)
-        print shop
         shop.validate = false
         shop.placeValidate = Establishment.findByNicknameEstablishment((String) params.nickname)
         shop.save flush: true
@@ -56,28 +50,15 @@ class ShopRecordController {
 
     def showHistory(){
         def user = ShopRecord.findByStandardUser(StandardUser.findById(params.userId))
-        print (user)
         session.user = user
     }
-
-
-
 
     def redimir(){
         def user = StandardUser?.findById(params."standardUser.id")
         def customer = Customer?.findById(params."customer.id")
-        print user
-        print customer
         def asd = Integer.parseInt(params."reward.id")
-        print asd
         def reward = Reward.findById(asd)
         def date = new Date()
-        print user.points
-        print user.points[customer.id]
-        print customer.name
-        print reward.rewardName
-        print reward.point
-
         def shopRecordinstance= new ShopRecord( )
         shopRecordinstance.standardUser = user
         shopRecordinstance.customer = customer

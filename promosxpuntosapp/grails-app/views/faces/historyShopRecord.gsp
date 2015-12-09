@@ -25,7 +25,7 @@
 <!-- Header -->
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
-    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
+    <a href="${createLink(controller:'profile')}" class="button special">Volver</a>
 </header>
 
 
@@ -37,15 +37,15 @@
         </header>
 
         <div class="container 75%">
-            <h2>Productos por redimir</h2>
+            <h2>Productos por reclamar</h2>
             <div class="row uniform 50%">
                 <div class="12u$">
                     <div class="table-wrapper">
                         <table style="vertical-align: middle;">
-                            <tr><th> RECOMPENSA </th> <th>FECHA</th> <th>CLIENTE</th></tr>
+                            <tr><th> RECOMPENSA </th> <th>FECHA</th> <th>CLIENTE</th><th>AUTORIZACIÓN</th></tr>
                             <g:each var="c" in="${promosxpuntosapp.ShopRecord.findAllByStandardUser(session.user)}">
                                 <g:if test="${c.validate}">
-                                    <tr><th> ${c.reward.rewardName}</th> <th>${c.date.format("d MMMM yyyy")}</th><th>${c.customer.name}</th></tr>
+                                    <tr><th> ${c.reward.rewardName}</th> <th>${c.date.format("d MMMM yyyy")}</th><th>${c.customer.name}</th><th>${c.consecutive}</th></tr>
                                 </g:if>
                             </g:each>
                         </table>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="container 75%">
-            <h2>Productos ya redimidos</h2>
+            <h2>Productos ya reclamados</h2>
             <div class="row uniform 50%">
                 <div class="12u$">
                     <div class="table-wrapper">

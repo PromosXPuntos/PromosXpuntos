@@ -5,7 +5,7 @@
   Time: 06:25 PM
 --%>
 
-<%@ page import="promosxpuntosapp.StandardUser" contentType="text/html;charset=UTF-8" %>
+<%@ page import="promosxpuntosapp.Reward; promosxpuntosapp.Customer; promosxpuntosapp.Establishment; promosxpuntosapp.StandardUser" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +19,18 @@
 <body>
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profileEstablishment')}">Promos x Puntos</a></h1>
     <a>${session.establishment.nicknameEstablishment}</a>
-    <a href="/promosxpuntosapp/profileEstablishment" class="button special">Volver</a>
+    <a href="${createLink(controller:'profileEstablishment')}" class="button special">Volver</a>
 </header>
 
 <section id="main" class="wrapper">
     <div class="container" style="text-align: justify">
         <header class="major special">
-            <label> Usuario <b>${promosxpuntosapp.StandardUser.findById(session.shopRecord.standardUserId).name} ${promosxpuntosapp.StandardUser.findById(session.shopRecord.standardUserId).lastname}</b> encontrado. </label>
-            <label> Usuario <b> ${promosxpuntosapp.StandardUser.findById(session.shopRecord.standardUserId).nickname}</b> encontrado. </label>
-            <label>Redención en establecimiento: ${promosxpuntosapp.Establishment.findById(session.shopRecord.customerId).name} / En: ${session.shopRecord.date}</label>
+            <label> Usuario <b>${StandardUser.findById(session.shopRecord.standardUserId).name} ${StandardUser.findById(session.shopRecord.standardUserId).lastname}</b> encontrado. </label>
+            <label> Con nombre de usuario <b> ${StandardUser.findById(session.shopRecord.standardUserId).nickname}</b> </label>
+            <label>Redención de: ${Reward.findById(session.shopRecord.rewardId).rewardName} en ${Customer.findById(session.shopRecord.customerId).name} </label>
+            <label>Realizada el ${session.shopRecord.date.format('d MMMM, yyyy')} a las ${session.shopRecord.date.format('hh:mm:ss')}</label>
             <g:uploadForm controller="shopRecord" action="validateShop" accept-charset="UTF-8" role="form" class="form-signup">
                 <g:textField id="consecutive" name="consecutive" style="display: none" value="${session.shopRecord.consecutive}"></g:textField>
                 <g:textField id="nickname" name="nickname" style="display: none" value="${session.establishment.nicknameEstablishment}"></g:textField>

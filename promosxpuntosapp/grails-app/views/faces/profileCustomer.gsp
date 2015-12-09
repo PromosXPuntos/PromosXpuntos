@@ -15,7 +15,7 @@
 
 <!-- Header -->
 <header id="header">
-    <h1><a href="">Promos x Puntos</a></h1>
+    <h1><a href="${createLink(controller:'profileCustomer')}">Promos x Puntos</a></h1>
     <a>${session.customer.nickname}</a>
     <a href="#nav">Menu</a>
 </header>
@@ -41,10 +41,10 @@
             <p> ${session.customer.name}</p>
             <g:uploadForm controller="customer" action="logOut" method="post">
                 <ul class="actions">
-                    <li><a href="/promosxpuntosapp/profileCustomer/createEstablishment" class="button special">Crear establecimiento</a></li>
-                    <li><a class="button special" href="/promosxpuntosapp/createdReward">Crear Recompensa</a></li>
+                    <li><a href="${createLink(controller:'profileCustomer', action:'createEstablishment')}" class="button special">Crear establecimiento</a></li>
+                    <li><a class="button special" href="${createLink(controller:'createdReward')}">Crear Recompensa</a></li>
                     <li><a href="${createLink(controller:'customer', action:'standardUserList', params:[nickname:session.customer?.nickname])}" class="button special">Usuarios con visitas</a></li>
-                    <li><a class="button special" href="/promosxpuntosapp/profileCustomer/searchUserReward">Buscar cliente</a></li>
+                    <li><a class="button special" href="${createLink(controller:'profileCustomer', action:'searchUserReward')}">Buscar cliente</a></li>
 
                 </ul>
             </g:uploadForm>

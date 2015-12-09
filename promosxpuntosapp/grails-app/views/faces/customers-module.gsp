@@ -23,8 +23,8 @@
 <!-- Nav -->
 <nav id="nav">
     <ul class="links">
-        <li><a href="customersIndex">Empresas</a></li>
-        <li><a href="../customersIndex#subscribe">Registrar empresa</a></li>
+        <li><a href="${createLink(controller:'customersIndex')}">Empresas</a></li>
+        <li><a href="${createLink(controller:'customersIndex', fragment:'subscribe')}">Registrar empresa</a></li>
         <li><a href="../">Para Usuarios</a></li>
     </ul>
 </nav>

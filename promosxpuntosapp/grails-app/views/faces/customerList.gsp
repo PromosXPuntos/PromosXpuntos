@@ -26,7 +26,7 @@
 <header id="header">
     <h1><a href="">Promos x Puntos</a></h1>
     <a>${session.user.nickname}</a>
-    <a href="/promosxpuntosapp/profile" class="button special">Volver</a>
+    <a href="${createLink(controller:'profile')}" class="button special">Volver</a>
 </header>
 
 <!-- Main -->
